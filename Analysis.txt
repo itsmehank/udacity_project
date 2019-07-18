@@ -1,0 +1,29 @@
+Big O Notation 
+
+[Task0.py]
+
+first_record(data) >>> O(1)
+last_record(data) >>> O(1)
+
+[Task1.py]
+
+get_list >>> O(n)
+check_overlap >>> O(n)
+how_many_number >>> O(n)
+
+[Task2.py]
+
+complete_dict >>> O(n)
+longest_number >>> O(n)
+
+
+[Task3.py]
+
+call_from >>> O(n)
+percent_samearea >>> O(n)
+
+[Task4.py]
+
+get_list >>> O(n)
+outg0_1ncome_list >>> O(n)
+telemarket_num >>> O(n)

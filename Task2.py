@@ -22,14 +22,12 @@ September 2016.".
 
 
 def complete_dict(list):
-    time_dict = {}
+    time_dict = dict()
     for data in list:
-        time_dict[data[0]] = 0
-        time_dict[data[1]] = 0
-    for data in list:
-        time_dict[data[0]] += int(data[-1])
-        time_dict[data[1]] += int(data[-1])
+        time_dict[data[0]] = time_dict.get(data[0], 0) + int(data[3])
+        time_dict[data[1]] = time_dict.get(data[1], 0) + int(data[3])
     return time_dict
+    
 
 def longest_number(dict):
     longest_num = 0

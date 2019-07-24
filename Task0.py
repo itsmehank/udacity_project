@@ -34,7 +34,7 @@ def last_record(data):
     last_time = str(data[-1][2])
     if len(data[0]) == 3: data_name ='texts'
     else: data_name = 'calls'
-    return ("Last record of " + data_name + ', ' + last_income + ' ' + data_name + ' ' + last_answer + ' at time '+ last_time)    
+    return ("Last record of " + data_name + ', ' + last_income + ' ' + data_name + ' ' + last_answer + ' at time '+ last_time + ", lasting <during> seconds")    
 
 
 print (first_record(texts))

@@ -19,7 +19,7 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-
+'''
 def get_list(list):
     number_list = []
     for data in list:
@@ -41,8 +41,16 @@ def how_many_number(data1,data2):
     list2 = get_list(data2)
     return ("There are "+ str(len(check_overlap(list1,list2))) + " different telephone numbers in the records.")
 
+'''
+
+def count_unique_number(data1, data2):
+    unique_number = set()
+    for i in data1 + data2:
+        unique_number.add(i[0])
+        unique_number.add(i[1])
+    count_number = len(unique_number)
+    return ("There are "+ str(count_number) + " different telephone numbers in the records.")
+
+print(count_unique_number(texts,calls))
 
 
-
-
-print(how_many_number(texts,calls))

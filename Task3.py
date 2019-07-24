@@ -47,7 +47,7 @@ The percentage should have 2 decimal digits
 # Part A
 
 def call_from(code, calls):
-    code_list =[]
+    code_set =set()
     for data in calls:
         if data[0][0] == '(' and data[0][1:4] == code:
             if data[1][0] == '(':
@@ -57,22 +57,21 @@ def call_from(code, calls):
                        temp += data[1][i]
                     elif data[1][i] ==')':
                         break;
-                if temp not in code_list:
-                    code_list.append(temp)        
+                code_set.add(temp)        
             elif data[1][0] == '7' or data[1][0] == '8' or data[1][0] == '9':
-                if data[1][0:4] not in code_list:
-                    code_list.append(data[1][0:4])          
+                code_set.add(data[1][0:4])          
             elif data[1][0:3] == '140':
-                if '140' not in code_list:
-                    code_list.append('140')
-    code_list.sort()                
+                code_set.add('140')
+    code_list = sorted(list(code_set))
     print ("The numbers called by people in Bangalore have codes:")
     for num in code_list[:-1]:
-        print (num)
+        print (num) 
     return code_list[-1]
 
 print(call_from('080',calls))
 
+
+print('\n')
 
 # Part B
 
@@ -84,8 +83,9 @@ def percent_samearea(code):
             if data[1][0] == '(' and data[1][1:4] == code:
                 same_count += 1
             total_call += 1
-    percent = int(round ((same_count / total_call),2) * 100)   
-    return str(percent//1) + " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
+    percent = round((same_count / total_call * 100),2)   
+    return str(percent) + " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
 
 
 print(percent_samearea('080'))
+

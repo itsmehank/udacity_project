@@ -25,42 +25,26 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-
-def get_list(list):
-    number_list = []
-    for data in list:
-        if data[0] not in number_list:
-            number_list.append(data[0])
-        if data[1] not in number_list:
-            number_list.append(data[1])
-    return number_list
-
-
-def outg0_1ncome_list(list, int):
-    number_list = []
-    for data in list:
-        if data[int] not in number_list:
-            number_list.append(data[int])
-    return number_list
-
-
-def telemarket_num(textdata, calldata):
-    text_list = get_list(textdata)
-    outgo_call_list = outg0_1ncome_list(calldata, 0)
-    income_call_list = outg0_1ncome_list(calldata,1)
-    telemarket_list = []
-    for num in outgo_call_list:
-        if num not in text_list and num not in income_call_list:
-            telemarket_list.append(num)
-        elif num in text_list:
-            text_list.remove(num)
-        elif num in income_call_list:
-            income_call_list.remove(num)
-    telemarket_list.sort()        
+def get_tele(calls, texts):
+    make_call=set()
+    text_n_receive = set()
+    for data in calls:
+        make_call.add(data[0])
+        text_n_receive.add(data[1])
+    for data in texts:
+        text_n_receive.add(data[0])
+        text_n_receive.add(data[1])
+    tele_set = make_call - (make_call & text_n_receive)
+    tele_list= sorted(list(tele_set))
     print ("These numbers could be telemarketers: ")
-    for num in telemarket_list[:-1]:
+    for num in tele_list[:-1]:
         print (num)
-    return telemarket_list[-1]    
-        
-print (telemarket_num(texts, calls))
+    return tele_list[-1]    
+
+
+print(get_tele(calls,texts))
+
+
+
+
 
